@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Inquiry and Printing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* .lable {
+            text-align: right;
+        } */
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .small-input {
+            width: 80px;
+        }
+
+        .header {
+            background-color: #003f7f;
+            color: white;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .section-title {
+            background-color: #f2f2f2;
+            text-align: left;
+            padding: 5px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .top-section {
+            background-color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+
+        .banner {
+            width: 100%;
+            background-color: #d3dfea;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            background-color: #f3f3f3;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-section img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .solution-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #e6e6e6;
+        }
+
+        .left-menu select {
+            padding: 3px;
+        }
+
+        .right-menu {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-shortcut {
+            padding: 2px;
+            font-size: 12px;
+            width: 120px;
+        }
+
+
+
+
+        /* Sidebar styles */
+        .sidebar {
+            display: none;
+            width: 300px;
+            height: 100%;
+            background-color: #f0f0f0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            border-right: 1px solid #ccc;
+            z-index: 999;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .menu li {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .collapsible {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            /* Plus sign */
+            color: white;
+            font-weight: bold;
+            float: right;
+        }
+
+        .collapsible.active:after {
+            content: "\2212";
+            /* Minus sign */
+        }
+
+        .submenu {
+            list-style-type: none;
+            padding-left: 20px;
+            display: none;
+        }
+
+        .submenu li {
+            padding: 8px;
+        }
+
+        .submenu li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .submenu li a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+        .show-menu:hover{
+            cursor: pointer !important ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <ul class="menu">
+            <li>
+                <button class="collapsible">Menu 1</button>
+                <ul class="submenu">
+                    <li><a href="#">Submenu 1.1</a></li>
+                    <li><a href="#">Submenu 1.2</a></li>
+                    <li><a href="#">Submenu 1.3</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="collapsible">Menu 2</button>
+                <ul class="submenu">
+                    <li><a href="#">Submenu 2.1</a></li>
+                    <li><a href="#">Submenu 2.2</a></li>
+                </ul>
+            </li>
+            <li>
+                <button class="collapsible">Menu 3</button>
+                <ul class="submenu">
+                    <li><a href="#">Submenu 3.1</a></li>
+                    <li><a href="#">Submenu 3.2</a></li>
+                    <li><a href="#">Submenu 3.3</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <button class="collapsible">Menu 3</button>
+                <ul class="submenu">
+                    <li><a href="#">Submenu 3.1</a></li>
+                    <li><a href="#">Submenu 3.2</a></li>
+                    <li><a href="#">Submenu 3.3</a></li>
+                </ul>
+            </li>
+            
+        </ul>
+    </div>
+
+    <div class="container">
+        
+        <div class="banner">
+            <div class="top-bar">
+                <div class="logo-section">
+                    <!-- <img src="https://be.tricentis.com/media-assets/2022/08/logo-t-fc-finacle2x.png" alt="Finacle Logo"> -->
+                    <img src="https://images.seeklogo.com/logo-png/55/1/diamond-trust-bank-dtb-uganda-logo-png_seeklogo-550579.png" alt="Finacle Logo">
+                    <hr>
+                    <!-- <span class="solution-title">Single Window - by Emanuel Bariki</span> -->
+                </div>
+                <div class="user-section">
+                    <span>User: EB1480</span>
+                    <span><a href="http://">Logout</a></span>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <div class="left-menu">
+                    <select>
+                        <option value="FINCORE">SINGLE WINDOW</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="right-menu">
+                    <span>28 May, 2015 </span>
+                    <span class="show-menu" onclick="showMenu()">Menu</span>
+                    <input type="text" placeholder="Menu Shortcut" class="menu-shortcut">
+                    <button>Go</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <h2>DSA Inquiry and Printing</h2>
+        </div>
+
+        <form>
+            <table border="0">
+                <tr>
+                    <td class="lable">Function <span class="required">*</span> :</td>
+                    <td>
+                        <select>
+                            <option value="">SELECT</option>
+                            <option value="1">Option 1</option>
+                        </select>
+                    </td>
+                    <td class="lable">License No.</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="lable">SOL ID <span class="required">*</span></td>
+                    <td><input type="text" value="50000300"></td>
+                    <td class="lable">CCY</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="lable">Scheme Code From</td>
+                    <td><input type="text"></td>
+                    <td class="lable">Scheme Code To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td class="lable">DSA ID From</td>
+                    <td><input type="text"></td>
+                    <td>DSA ID To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>DSA Parent ID From</td>
+                    <td><input type="text"></td>
+                    <td>DSA Parent ID To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>DSA User Grade From</td>
+                    <td><input type="text"></td>
+                    <td>DSA User Grade To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>CIF ID From</td>
+                    <td><input type="text"></td>
+                    <td>CIF ID To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>A/c ID From</td>
+                    <td><input type="text"></td>
+                    <td>A/c ID To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>DSA Level From</td>
+                    <td><input type="text"></td>
+                    <td>DSA Level To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Consolidated DSA ID From</td>
+                    <td><input type="text"></td>
+                    <td>Consolidated DSA ID To</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Free Code 1</td>
+                    <td><input type="text"></td>
+                    <td>Free Code 2</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                <input type="submit" value="Go">
+            </div>
+        </form>
+    </div>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var submenu = this.nextElementSibling;
+                if (submenu.style.display === "block") {
+                    submenu.style.display = "none";
+                } else {
+                    submenu.style.display = "block";
+                }
+            });
+        }
+    });
+
+
+    function showMenu() {
+        var sidebar = document.getElementsByClassName("sidebar");
+        
+        console.log(sidebar[0]);
+        
+        if (sidebar[0].style.display === "block") {
+            sidebar[0].style.display = "none";
+        } else {
+            sidebar[0].style.display = "block";
+        }
+    }
+</script>
+
+</html>
